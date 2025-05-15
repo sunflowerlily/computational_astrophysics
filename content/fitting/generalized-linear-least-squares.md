@@ -1,12 +1,10 @@
 # General Linear Least Squares
 
-The _linear_ in linear least squares refers to how the parameters
-appear in the fitting function, $Y$.  So something of the form:
+线性最小二乘法中的**线性**指的是参数在拟合函数$Y$中的呈现方式。所以形如：
 
 $$Y(x; \{a_j\}) = \sum_{j=1}^M a_j \varphi_j(x)$$
 
-is still linear in the $\{a_j\}$, even if the _basis functions_
-$\{\varphi_j\}$ are nonlinear.
+的式子，即便**基函数** $\{\varphi_j\}$ 是非线性的，但对于 $\{a_j\}$ 而言仍是线性的。
 
 
 ```{admonition} Example
@@ -105,7 +103,7 @@ $${\bf b} = \left (\begin{array}{c} y_1 / \sigma_1 \\
 
 ### Linear system
 
-We can now use this design matrix and source to find the underlying linear system.
+现在我们可以使用这个设计矩阵和源向量来求解底层的线性系统。
 
 ${\bf A}^\intercal {\bf A}$ is:
 
@@ -151,11 +149,11 @@ ${\bf A}^\intercal {\bf b}$ is:
                                            \sum_i x_i y_i / \sigma_i^2 \end{array} \right )
 \end{align*}
 
-Putting these together, this gives us 2 equations with 2 unknowns ($a_1$, $a_2$):
+将这些结合起来，我们得到一个包含两个未知数 ($a_1$, $a_2$) 的二元方程组：
 
 \begin{align*}
 a_1 \sum_i \frac{1}{\sigma_i^2} + a_2 \sum_i \frac{x_i}{\sigma_i^2} &= \sum_i \frac{y_i}{\sigma_i^2} \\
 a_1 \sum_i \frac{x_i}{\sigma_i^2} + a_2 \sum_i \frac{x_i^2}{\sigma_i^2} &= \sum_i \frac{x_i y_i}{\sigma_i^2}
 \end{align*}
 
-This is precisely the system we saw before.
+这正是我们之前看到的方程组。
